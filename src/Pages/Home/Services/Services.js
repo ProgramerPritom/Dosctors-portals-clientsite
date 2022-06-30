@@ -37,20 +37,20 @@ const Services = () => {
             </div>
             <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-8 mt-8'>
                 {services.map(service => <Service
-                key={service.id}
+                key={service._id}
                 service={service}
                 ></Service>)
                 }
 
             </div>
             <div className='my-20 px-28'>
-            <div class="card lg:card-side bg-base-100 shadow-xl">
+            <div className="card lg:card-side bg-base-100 shadow-xl">
             <figure><img className='w-80' src={tretment} alt="Album"/></figure>
-            <div class="card-body">
-                <h2 class="card-title">Exceptional Dental Care, on Your Terms</h2>
+            <div className="card-body">
+                <h2 className="card-title">Exceptional Dental Care, on Your Terms</h2>
                 <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsumis that it has a more-or-less normal distribution of letters,as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page</p>
-                <div class="card-actions justify-start">
-                <button class="btn btn-primary text-white font-bold">GET STARTED</button>
+                <div className="card-actions justify-start">
+                <button className="btn btn-primary text-white font-bold">GET STARTED</button>
                 </div>
             </div>
             </div>

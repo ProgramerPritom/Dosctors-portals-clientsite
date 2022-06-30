@@ -7,10 +7,10 @@ const InfoCard = ({img,bgClass,infoTitle}) => {
             <img className='w-15 pt-4' src={img}/>
 
             </figure>
-            <div class="card-body">
-            <h2 class="card-title text-2xl">{infoTitle}</h2>
+            <div className="card-body">
+            <h2 className="card-title text-2xl">{infoTitle}</h2>
             <p>Click the button to listen on Spotiwhy app.</p>
-            <div class="card-actions justify-end">
+            <div className="card-actions justify-end">
             
             </div>
         </div>
