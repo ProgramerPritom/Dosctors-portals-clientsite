@@ -3,10 +3,13 @@ import { format } from 'date-fns';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
+import { toast } from 'react-toastify';
 
-const BookingMordal = ({treatment, date,setTreatment}) => {
+const BookingMordal = ({treatment, date,setTreatment, refetch}) => {
     const {_id,name,slots} = treatment;
     const [user, loading,] = useAuthState(auth);
+    const formattedDate = format(date, 'PP');
+
     if (loading) {
         return <Loading></Loading>
     }
@@ -14,8 +17,36 @@ const BookingMordal = ({treatment, date,setTreatment}) => {
     const handleModal = (event) => {
         event.preventDefault();
         const slots = event.target.slot.value;
-        console.log(slots);
-        setTreatment(null);
+        const booking = {
+            treatmentId : _id,
+            treatment : name,
+            date : formattedDate,
+            slots,
+            patientName: user.displayName,
+            patientEmail : user.email,
+            phone: event.target.phone.value
+
+        }
+        fetch('http://localhost:5000/booking', {
+            method: 'POST',
+            body: JSON.stringify(booking),
+            headers: {
+                'Content-type': 'application/json',
+            },
+            })
+            .then(res => res.json())
+            .then(data => {
+
+               
+                if (data.success) {
+                    toast(`Appointment is set ${formattedDate} at ${slots}`);
+                }else{
+                    toast.error(`Allready appointment set on ${data.booking?.date} at ${data.booking?.slots}`);
+                }
+                refetch();
+                setTreatment(null);
+            })
+        
     }
     return (
         <div>
