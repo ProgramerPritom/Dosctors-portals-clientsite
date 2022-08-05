@@ -11,7 +11,7 @@ const AppointmentDetails = ({date}) => {
     const [treatment,setTreatment] = useState(null);
     const formattedDate = format(date, 'PP');
 
-    const {data: services, isLoading, refetch} = useQuery(['available', formattedDate], ()=>fetch(`http://localhost:5000/available?date=${formattedDate}`)
+    const {data: services, isLoading, refetch} = useQuery(['available', formattedDate], ()=>fetch(`https://whispering-sierra-92266.herokuapp.com/available?date=${formattedDate}`)
         .then(res => res.json())
         )
 
@@ -19,7 +19,7 @@ const AppointmentDetails = ({date}) => {
             return <Loading></Loading>
         }
     // useEffect( ()=>{
-    //     fetch(`http://localhost:5000/available?date=${formattedDate}`)
+    //     fetch(`https://whispering-sierra-92266.herokuapp.com/available?date=${formattedDate}`)
     //     .then(res => res.json())
     //     .then(data => setServices(data));
     // },[formattedDate])

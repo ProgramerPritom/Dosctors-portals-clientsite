@@ -9,7 +9,7 @@ const useToken = (user) => {
         const email = user?.user?.email;
         const currentEmail = {email: email};
         if (email) {
-            fetch(`http://localhost:5000/user/${email}`,{
+            fetch(`https://whispering-sierra-92266.herokuapp.com/user/${email}`,{
                 method: 'PUT',
                 headers: {
                     'content-type' : 'application/json'
