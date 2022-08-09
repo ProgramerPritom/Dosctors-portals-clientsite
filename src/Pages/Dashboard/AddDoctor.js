@@ -6,7 +6,7 @@ import Loading from '../Shared/Loading';
 
 const AddDoctor = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
-    const {data: services, isLoading} = useQuery('services', ()=> fetch('http://localhost:5000/service').then(res=>res.json()));
+    const {data: services, isLoading} = useQuery('services', ()=> fetch('https://whispering-sierra-92266.herokuapp.com/service').then(res=>res.json()));
 
     const imageStorageKey = 'f554d4a94faa54a256b033c9a2b30f21';
 
@@ -41,7 +41,7 @@ const AddDoctor = () => {
                     img: img
                 }
                 //send to my database
-                fetch('http://localhost:5000/doctor',{
+                fetch('https://whispering-sierra-92266.herokuapp.com/doctor',{
                     method: 'POST',
                     headers: {
                         'content-type' : 'application/json',
