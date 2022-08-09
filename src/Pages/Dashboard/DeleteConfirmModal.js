@@ -27,18 +27,18 @@ const DeleteConfirmModal = ({deletingDoctor, refetch,setDeletingDoctor}) => {
             
 
             
-            <input type="checkbox" id="delete-confirm-modal" class="modal-toggle" />
-            <div class="modal modal-bottom sm:modal-middle">
-            <div class="modal-box">
-                <h3 class="font-bold text-lg">Are You sure want to Delete Dr.{name}</h3>
-                <p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
-                <div class="modal-action">
+            <input type="checkbox" id="delete-confirm-modal" className="modal-toggle" />
+            <div className="modal modal-bottom sm:modal-middle">
+            <div className="modal-box">
+                <h3 className="font-bold text-lg">Are You sure want to Delete Dr.{name}</h3>
+                <p className="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
+                <div className="modal-action">
 
-                <button onClick={()=>handleDoctorDelete()} class="btn btn-error">
+                <button onClick={()=>handleDoctorDelete()} className="btn btn-error">
                 Delete Now
                 </button>
 
-                <label for="delete-confirm-modal" class="btn btn-success">Cancel</label>
+                <label htmlFor="delete-confirm-modal" className="btn btn-success">Cancel</label>
                 </div>
             </div>
             </div>
